@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart } from "../fearures/cart/cartSlice.js";
 import { productDetails } from "../fearures/cart/buynowSlice.js";
 import { Link } from "react-router-dom";
-
+ fd 
 function SearchedData() {
   const dispatch = useDispatch();
 
