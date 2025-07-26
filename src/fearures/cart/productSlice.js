@@ -41,7 +41,7 @@ export const productSlice = createSlice({
     builder.addCase(fetchData.rejected, (state, action) => {
       state.loading = false;
       state.error = true;
-      state.products = action.error.message;
+      state.products = action.error;
     });
   },
 });

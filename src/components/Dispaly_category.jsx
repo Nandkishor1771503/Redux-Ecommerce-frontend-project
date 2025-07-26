@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Dispaly_category() {
   const dispatch = useDispatch();
 
-  const { category } = useSelector((state) => state.category);
+  const { category, loading } = useSelector((state) => state.category);
 
   const handleCart = (item) => {
     dispatch(addToCart(item));
@@ -18,7 +18,10 @@ function Dispaly_category() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-      {category &&
+      {loading ? (
+        <p>loading...</p>
+      ) : (
+        category &&
         category.map((product) => (
           <div
             key={product.id}
@@ -67,7 +70,8 @@ function Dispaly_category() {
               </button>
             </div>
           </div>
-        ))}
+        ))
+      )}
     </div>
   );
 }

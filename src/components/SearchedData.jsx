@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function SearchedData() {
   const dispatch = useDispatch();
 
-  const { category } = useSelector((state) => state.category);
+  const { category,loading,error } = useSelector((state) => state.category);
   const { products } = useSelector((state) => state.products);
   const { searchReq } = useSelector((state) => state.search);
 

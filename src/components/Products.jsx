@@ -8,8 +8,7 @@ import { Link } from "react-router-dom";
 function Products() {
   const dispatch = useDispatch();
   const { products, loading, error } = useSelector((state) => state.products);
-  const { searchReq } = useSelector((state) => state.search.searchReq);
-  //   console.log(products);
+
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);

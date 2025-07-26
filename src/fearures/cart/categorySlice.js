@@ -7,12 +7,9 @@ const api = axios.create({
 
 const initialState = {
   category: [],
-  // urlEndpoint: "",
+  loading: true,
+  error: false,
 };
-
-// const getRequiredData = () => {
-//   return api.get(`/category/${initialState.urlEndpoint}`); //
-// };
 
 export const fetchRequiredData = createAsyncThunk(
   "categoryData",
@@ -34,6 +31,13 @@ export const categorySlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchRequiredData.fulfilled, (state, action) => {
       state.category = action.payload.products;
+      (state.loading = false), (state.error = false);
+    });
+    builder.addCase(fetchRequiredData.pending, (state, action) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchRequiredData.rejected, (state, action) => {
+      (state.error = true), (state.loading = false);
     });
   },
 });
