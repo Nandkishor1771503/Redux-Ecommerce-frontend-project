@@ -9,13 +9,12 @@ function getData() {
   return api.get("/");
 }
 
-export const fetchData = createAsyncThunk("products/fetch", async () => {
+export const fetchData = createAsyncThunk("products/fetchData", async () => {
   try {
     const res = await getData();
-    // console.log(res.data);
     return res.data;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 });
 
@@ -45,6 +44,5 @@ export const productSlice = createSlice({
     });
   },
 });
-// console.log(initialState.products)
 
 export default productSlice.reducer;
